@@ -1,4 +1,4 @@
-from .seewave import (
+from .pyseewave import (
     afilter,
     dBweight,
     sfm,
