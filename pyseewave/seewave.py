@@ -355,7 +355,7 @@ def sh(spec, alpha='shannon'):
 
   return z
 
-def spec(wave, f, channel=1, wl=512, wn="hanning", norm=True, scaled=False,
+def spec(wave, f, channel=1, wl=512, wn="hann", norm=True, scaled=False,
          PSD=False, PMF=False, correction="none", dB=None, dBref=None,
          at=None, start=None, end=None, identify=False, col="black",
          cex=1, plot=1, flab="Frequency (kHz)", alab="Amplitude", flim=None, alim=None, type="1"):
