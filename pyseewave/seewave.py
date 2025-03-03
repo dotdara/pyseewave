@@ -1,10 +1,3 @@
-import numpy as np
-import warnings
-import matplotlib.pyplot as plt
-from scipy.signal import get_window, spectrogram
-from scipy.fftpack import fft, ifft
-from scipy.stats import skew, kurtosis
-
 def afilter(wave, f, channel=1, threshold=5, plot=True):
     """
     Apply an amplitude threshold filter to a signal.
