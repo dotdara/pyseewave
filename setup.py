@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="signal_processing_toolkit",
+    name="pyseewave",
     version="0.1.0",
     author="Dara",
     author_email="daraaasuama1@gmail.com",
