@@ -1,3 +1,7 @@
+import numpy as np
+from scipy.fftpack import fft, ifft
+import matplotlib.pyplot as plt
+
 def afilter(wave, f, channel=1, threshold=5, plot=True):
     """
     Apply an amplitude threshold filter to a signal.
