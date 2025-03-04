@@ -453,7 +453,7 @@ def spec(wave, f, channel=1, wl=512, wn="hann", norm=True, scaled=False,
     plt.ylabel(alab)
     plt.show()
   else:
-    return x, y
+    return np.column_stack((x, y))
 
 def specprop(spec, f=None, str_output=False, flim=None, mel=False, plot=False, plot_type="l",
              xlab=None, ylab=None, col_mode=2, col_quartiles=4, **kwargs):
