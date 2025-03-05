@@ -1,6 +1,8 @@
 import numpy as np
 from scipy.fftpack import fft, ifft
 import matplotlib.pyplot as plt
+from scipy.stats import skew, kurtosis
+from scipy.signal import get_window, spectrogram
 
 def afilter(wave, f, channel=1, threshold=5, plot=True):
     """
