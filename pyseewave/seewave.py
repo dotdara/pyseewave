@@ -94,8 +94,6 @@ def dBweight(f, dBref=None):
     result = {key: value + dBref for key, value in result.items()}
   return result
 
-from scipy.signal import get_window, spectrogram
-
 def dfreq(wave, f, channel=1, wl=512, wn="hann", ovlp=0, fftw=False, at=None,
           tlim=None, threshold=None, bandpass=None, clip=None, plot=True,
           xlab="Time (s)", ylab="Frequency (kHz)", ylim=None, **kwargs):
@@ -142,7 +140,7 @@ def dfreq(wave, f, channel=1, wl=512, wn="hann", ovlp=0, fftw=False, at=None,
 
     # Amplitude threshold
     if threshold is not None:
-        wave = np.where(np.abs(wave) < threshold, 0, wave)
+        wave = afilter(wave, f, channel=1, threshold=threshold, plot=False)
 
     # Position(s)
     n = len(wave)
@@ -175,8 +173,8 @@ def dfreq(wave, f, channel=1, wl=512, wn="hann", ovlp=0, fftw=False, at=None,
     # Maximum search
     maxi = np.max(y1, axis=0)
     y2 = np.argmax(y1, axis=0)
-    y2[maxi == 0] = np.nan
-
+    y2 = np.where(maxi == 0, np.nan, y2)
+              
     # Discard peaks with amplitude lower than the clip value
     if clip is not None:
         y2[maxi < clip] = np.nan
