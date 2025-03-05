@@ -273,6 +273,7 @@ def fund(wave, f, channel=1, wl=512, ovlp=0, fmax=None, threshold=None, at=None,
     for i, start in enumerate(step):
         segment = wave[start:start + wl]
         spectrum = np.abs(fft(segment))
+        spectrum = np.where(spectrum==0, 1e-10, spectrum)
         cepstrum = np.real(ifft(np.log(spectrum)))
         z1[:, i] = cepstrum
 
